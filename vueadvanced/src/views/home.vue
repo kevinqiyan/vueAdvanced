@@ -1,8 +1,6 @@
 <template>
   <div id="Home">
       <div id="title">
-          <!-- <router-link to="/Look">Look</router-link>
-          <router-link to="/HelloWorld">HelloWorld</router-link> -->
           <div class="titleWap">
               <span class="titleBtnL" @click="change(1)">Look</span>
               <span class="titleBtnR" @click="change(2)">Hello</span>

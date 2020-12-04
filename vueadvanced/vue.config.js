@@ -24,6 +24,7 @@ module.exports = {
         proxy:{
             '/api':{
                 target:'http://musicapi.leanapp.cn/artist/list', //网易云list接口
+                //target:'https://pcsd-test.oss-cn-beijing.aliyuncs.com/ligw7/svga/rocket_svga',
                 changeOrigin:true,
                 secure:false,
                 pathRewrite:{
