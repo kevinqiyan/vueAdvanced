@@ -16,10 +16,10 @@ export default {
     padding: 0;
 }
 #two{
-    width: 400px;
-    height: 400px;
+    width: 344px;
+    height: 10vh;
     background-color: red;
-    line-height: 400px;
+    line-height: 10vh;
     text-align: center;
 }
 </style>

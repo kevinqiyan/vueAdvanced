@@ -16,10 +16,12 @@ export default {
     padding: 0;
 }
 #five{
-    width: 400px;
-    height: 400px;
+    width: 344px;
+    height: 10vh;
     background-color: rebeccapurple;
-    line-height: 400px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

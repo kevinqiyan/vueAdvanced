@@ -9,9 +9,15 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+  window
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
+#app{
+  width: 344px;
+  height: 100vh;
+  overflow-x: hidden;
+}
 </style>
