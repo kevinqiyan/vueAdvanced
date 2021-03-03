@@ -21,13 +21,14 @@ import two from '../components/dragModule/two'
 import thre from '../components/dragModule/thre'
 import four from '../components/dragModule/four'
 import five from '../components/dragModule/five'
-import draggable from 'vuedraggable'
+// import draggable from 'vuedraggable'
+import math from 'library/dist/library'
 // import getAll from '../api/index'
 // import build from '../../dist/info.yaml'
 export default {
   name: 'HelloWorld',
   components:{
-    draggable,
+    // draggable,
     one,
     two,
     thre,
@@ -86,7 +87,8 @@ export default {
     }
   },
   mounted() {
-    this.isShow = true
+    this.isShow = true,
+    console.log(math,'11111',math.math.add(1,2));
     // this.fs()
     // this.req()
     // this.thrd()

@@ -13,6 +13,7 @@
     "js-yaml": "^4.0.0",
     "json-loader": "^0.5.7",
     "lib-flexible": "^0.3.2",
+    "library": "git+https://github.com/kevinqiyan/JsLibrary.git",
     "sass": "^1.32.4",
     "sass-loader": "^10.1.1",
     "scss": "^0.2.4",
