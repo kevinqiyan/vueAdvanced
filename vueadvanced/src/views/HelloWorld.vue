@@ -1,29 +1,179 @@
 <template>
-  <div class="hello">
-    
+  <div id="hello">
+    <!-- <div id="content" :class="isShow?'test':''"> -->
+    <div id="content" v-show="false">
+    <draggable>
+      <!-- <transition-group> -->
+      <one ref="one" key="1"/>
+      <two ref="two" key="2"/>
+      <thre ref="thre" key="3"/>
+      <four ref="four" key="4"/>
+      <five ref="five" key="5"/>
+      <!-- <ul v-for="(item, index) in list" key="6">
+        <{{item.name}} />
+      </ul> -->
+      <!-- </transition-group> -->
+      <!-- <button @click="fs">点击</button> -->
+    </draggable>
+    </div>
+    <div>
+      <draggable v-model="list" @end="onEnd">
+        <component :is="item"  v-for="(item, index) in list" :key="index" @click="what(index)"></component>
+      </draggable>
+    </div>
+    <!-- <div id="imgBlur" :class="isShow?'test':''"> -->
+    <div id="imgBlur" v-show="false">
+      <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1603365312,3218205429&fm=26&gp=0.jpg" alt="">
+    </div>
+    <div @click="check" id="btn" v-show="false">动画切换</div>
   </div>
 </template>
 
 <script>
+import one from '../components/dragModule/one'
+import two from '../components/dragModule/two'
+import thre from '../components/dragModule/thre'
+import four from '../components/dragModule/four'
+import five from '../components/dragModule/five'
+import draggable from 'vuedraggable'
+// import module from 'module'
+import math from 'library/dist/library'
+// import getAll from '../api/index'
+// import build from '../../dist/info.yaml'
 export default {
   name: 'HelloWorld',
+  components:{
+    draggable,
+    one,
+    two,
+    thre,
+    four,
+    five
+  },
+  data() {
+    return {
+      list:[
+        // {'name':one},
+        // {'name':two},
+        // {'name':thre},
+        // {'name':four},
+        // {'name':five}
+        'one',
+        'two',
+        'thre',
+        'four',
+        'five'
+      ],
+      isShow:false,
+      isShow2:true,
+      te:null,
+    }
+  },
+  
+  methods: {
+    what(number){
+      console.log(number,this.list);
+    },
+    fs(){
+      let yaml = require('yamljs')
+      console.log(yaml,'++++++',yaml.load);
+      let result = yaml.load('../../dist/info.yaml')
+      console.log(result);
+    },
+    req(){
+      this.$http.get('../api/index.js',(res)=>{
+        console.log(res,'req');
+      })
+    },
+    thrd(){
+      let fs = require('fs')
+      let content = fs.readFileSync('../../dist/info.yaml',{encoding:'utf8'})
+      console.log(content,'thrd内容');
+    },
+    check(){
+      this.isShow = !this.isShow
+      // alert(this.te.abc.abc())
+      setTimeout(()=>{
+        this.isShow2 = !this.isShow2
+      },2000)
+      // if (!this.isShow) {
+      //     setTimeout(()=>{
+      //     this.isShow2 = false
+      //   },2000)
+      // }else{
+      //   // setTimeout(()=>{
+      //   //   this.isShow2 = true
+      //   // },1000)
+      //   // this.isShow = true
+      //   this.isShow2 = true
+      // }
+      
+    },
+    onEnd(){
+      console.log(this.list,'++++++++++++++');
+      localStorage.setItem('dir',JSON.stringify(this.list))
+    }
+  },
+  mounted() {
+    this.isShow = true,
+    this.te = new math.math.t
+    this.te.abc()
+    console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
+    if (localStorage.getItem('dir')) {
+      this.list = JSON.parse(localStorage.getItem('dir'))
+      console.log('localstorage 有值',this.list);
+    }
+    // this.fs()
+    // this.req()
+    // this.thrd()
+    // let abc = new getAll
+    // abc.info()
+    // console.log(localStorage.getItem('info'));
+  },
+  computed:{
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
+<style scoped lang='scss'>
+*{
+  margin: 0;
   padding: 0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.test{
+  left: 0px!important;
+  transition: 2s;
 }
-a {
-  color: #42b983;
+#hello{
+  width: 100%;
+  height: 100%;
+  #content{
+    width: 100%;
+    position: absolute;
+    left: -100%;
+    transition: 2s;
+    // height: 625px;
+    // display: flex;
+    // flex-wrap: wrap;
+  }
+  #imgBlur{
+    width: 345px;
+    height: 345px;
+    position: absolute;
+    top: 500px;
+    left: -100%;
+    transition: 2s;
+    img{
+      width: 345px;
+      height: 345px;
+      filter: blur(5px);
+    }
+  }
+  #btn{
+    position: absolute;
+    // top: 625px;
+    z-index: 2;
+  }
 }
 </style>

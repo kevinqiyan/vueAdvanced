@@ -25,6 +25,6 @@ export default new Router({
     },
     {
         path:'',
-        component:Look
+        component:HelloWorld
     }
 ]})

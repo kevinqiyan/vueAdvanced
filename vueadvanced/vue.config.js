@@ -32,6 +32,26 @@ module.exports = {
                 }
             }
         }
-    }
-
+    },
+    // chainWebpack: config => {
+    //     config.module
+    //       .rule("i18n")
+    //       .resourceQuery(/blockType=i18n/)
+    //       .type('javascript/auto')
+    //       .use("i18n")
+    //         .loader("@kazupon/vue-i18n-loader")
+    //         .end()
+    //       .use('yaml')
+    //         .loader('yaml-loader')
+    //         .end()
+    //     config.module.rule('yaml')
+    //         .test(/\.ya?ml$/)
+    //             // 指定到某个目录下的文件，如果项目有其它目录用到.yaml文件可以指定到src目录就行了
+    //         // .include.add(resolve('src/assets/lang'))
+    //         .end()
+    //         .type('json')
+    //         .use("yaml-loader")
+    //         .loader("yaml-loader")
+    //         .end()
+    //   }
 }
