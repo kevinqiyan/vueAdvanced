@@ -1,17 +1,31 @@
 <template>
   <div id="hello">
-    <div id="content" :class="isShow?'test':''">
-      <one ref="one"/>
-      <two ref="two"/>
-      <thre ref="thre"/>
-      <four ref="four"/>
-      <five ref="five"/>
+    <!-- <div id="content" :class="isShow?'test':''"> -->
+    <div id="content" v-show="false">
+    <draggable>
+      <!-- <transition-group> -->
+      <one ref="one" key="1"/>
+      <two ref="two" key="2"/>
+      <thre ref="thre" key="3"/>
+      <four ref="four" key="4"/>
+      <five ref="five" key="5"/>
+      <!-- <ul v-for="(item, index) in list" key="6">
+        <{{item.name}} />
+      </ul> -->
+      <!-- </transition-group> -->
       <!-- <button @click="fs">点击</button> -->
+    </draggable>
     </div>
-    <div id="imgBlur" :class="isShow?'test':''">
+    <div>
+      <draggable v-model="list" @end="onEnd">
+        <component :is="item"  v-for="(item, index) in list" :key="index" @click="what(index)"></component>
+      </draggable>
+    </div>
+    <!-- <div id="imgBlur" :class="isShow?'test':''"> -->
+    <div id="imgBlur" v-show="false">
       <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1603365312,3218205429&fm=26&gp=0.jpg" alt="">
     </div>
-    <div @click="check" id="btn">动画切换</div>
+    <div @click="check" id="btn" v-show="false">动画切换</div>
   </div>
 </template>
 
@@ -21,14 +35,15 @@ import two from '../components/dragModule/two'
 import thre from '../components/dragModule/thre'
 import four from '../components/dragModule/four'
 import five from '../components/dragModule/five'
-// import draggable from 'vuedraggable'
+import draggable from 'vuedraggable'
+// import module from 'module'
 import math from 'library/dist/library'
 // import getAll from '../api/index'
 // import build from '../../dist/info.yaml'
 export default {
   name: 'HelloWorld',
   components:{
-    // draggable,
+    draggable,
     one,
     two,
     thre,
@@ -38,18 +53,27 @@ export default {
   data() {
     return {
       list:[
-        {'name':one},
-        {'name':two},
-        {'name':thre},
-        {'name':four},
-        {'name':five}
+        // {'name':one},
+        // {'name':two},
+        // {'name':thre},
+        // {'name':four},
+        // {'name':five}
+        'one',
+        'two',
+        'thre',
+        'four',
+        'five'
       ],
       isShow:false,
       isShow2:true,
+      te:null,
     }
   },
   
   methods: {
+    what(number){
+      console.log(number,this.list);
+    },
     fs(){
       let yaml = require('yamljs')
       console.log(yaml,'++++++',yaml.load);
@@ -68,10 +92,10 @@ export default {
     },
     check(){
       this.isShow = !this.isShow
+      // alert(this.te.abc.abc())
       setTimeout(()=>{
         this.isShow2 = !this.isShow2
       },2000)
-      
       // if (!this.isShow) {
       //     setTimeout(()=>{
       //     this.isShow2 = false
@@ -84,11 +108,21 @@ export default {
       //   this.isShow2 = true
       // }
       
+    },
+    onEnd(){
+      console.log(this.list,'++++++++++++++');
+      localStorage.setItem('dir',JSON.stringify(this.list))
     }
   },
   mounted() {
     this.isShow = true,
-    console.log(math,'11111',math.math.add(1,2));
+    this.te = new math.math.t
+    this.te.abc()
+    console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
+    if (localStorage.getItem('dir')) {
+      this.list = JSON.parse(localStorage.getItem('dir'))
+      console.log('localstorage 有值',this.list);
+    }
     // this.fs()
     // this.req()
     // this.thrd()
