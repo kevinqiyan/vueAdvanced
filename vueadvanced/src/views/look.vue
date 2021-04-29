@@ -3,8 +3,16 @@
       <p>Count is {{ $store.state.count }} 是{{evenOrOdd}}</p>
       <button @click="increat">增加</button>
       <button @click="decreat">减少</button>
-      <pr :mess = 'father'/>
-      <vueScroll/>
+      <pr :mess = 'father' v-show="false"/>
+      <vueScroll v-show="false"/>
+      <div id="text">
+          <ol>
+              <li>测试有序列表</li>
+              <li>测试有序列表</li>
+              <li>测试有序列表</li>
+              <li>测试有序列表</li>
+          </ol>
+      </div>
   </div>
 </template>
 
@@ -46,5 +54,18 @@ export default {
 #look{
     width: 100vw;
     // height: 100vh;
+    #text{
+        width: 320px;
+        height: 160px;
+        border-radius: 10px;
+        background-color: #bbffaa;
+        margin-top: 10px;
+        margin-left: 10px;
+        overflow: hidden;
+        ol{
+            // overflow: hidden;
+            margin-left: 10px;
+        }
+    }
 }
 </style>

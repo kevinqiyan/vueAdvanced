@@ -17,8 +17,11 @@
     </draggable>
     </div>
     <div>
+      <!-- <draggable v-model="list" @end="onEnd" delay="100"  distance="1"> -->
       <draggable v-model="list" @end="onEnd">
-        <component :is="item"  v-for="(item, index) in list" :key="index" @click="what(index)"></component>
+        <!-- <keep-alive> -->
+          <component :is="item"  v-for="(item, index) in list" :key="index" ></component>
+        <!-- </keep-alive> -->
       </draggable>
     </div>
     <!-- <div id="imgBlur" :class="isShow?'test':''"> -->
@@ -110,7 +113,7 @@ export default {
       
     },
     onEnd(){
-      console.log(this.list,'++++++++++++++');
+      // console.log(this.list,'++++++++++++++');
       localStorage.setItem('dir',JSON.stringify(this.list))
     }
   },
