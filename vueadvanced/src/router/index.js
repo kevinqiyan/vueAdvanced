@@ -5,9 +5,15 @@ import EasySlider from '../components/vue-easy-slider.vue'
 // import vueScoll from '../components/vue-easy-slider.vue'
 import Look from '../views/look.vue'
 import Once from '../views/once.vue'
+import Echarts from '../components/echartsTest/index.vue'
 vue.use(Router)
 export default new Router({
     routes:[
+        {
+            path:'Echarts',
+            name:'Echarts',
+            component:Echarts
+        },
     {
         path:'/HelloWorld',
         name:'HelloWorld',
@@ -30,6 +36,6 @@ export default new Router({
     },
     {
         path:'',
-        component:HelloWorld
+        component:Echarts
     }
 ]})

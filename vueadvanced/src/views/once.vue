@@ -46,7 +46,7 @@ export default {
       this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
     },
     // 事件点击
-    eventClick(event, jsEvent, pos){
+    eventClick(event){
         console.log(event, '事件点击');
     }
   },

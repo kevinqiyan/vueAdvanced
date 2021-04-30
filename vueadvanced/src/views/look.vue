@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {mapActions,mapGetters, mapState} from 'vuex';
+import {mapActions,mapGetters} from 'vuex';
 import pr from '../components/props';
 import vueScroll from '../components/vueScroll.vue';
 export default {

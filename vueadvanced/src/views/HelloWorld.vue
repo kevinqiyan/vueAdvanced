@@ -40,7 +40,7 @@ import four from '../components/dragModule/four'
 import five from '../components/dragModule/five'
 import draggable from 'vuedraggable'
 // import module from 'module'
-import math from 'library/dist/library'
+// import math from 'library/dist/library'
 // import getAll from '../api/index'
 // import build from '../../dist/info.yaml'
 export default {
@@ -118,14 +118,14 @@ export default {
     }
   },
   mounted() {
-    this.isShow = true,
-    this.te = new math.math.t
-    this.te.abc()
-    console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
-    if (localStorage.getItem('dir')) {
-      this.list = JSON.parse(localStorage.getItem('dir'))
-      console.log('localstorage 有值',this.list);
-    }
+    // this.isShow = true,
+    // this.te = new math.math.t
+    // this.te.abc()
+    // console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
+    // if (localStorage.getItem('dir')) {
+    //   this.list = JSON.parse(localStorage.getItem('dir'))
+    //   console.log('localstorage 有值',this.list);
+    // }
     // this.fs()
     // this.req()
     // this.thrd()
