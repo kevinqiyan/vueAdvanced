@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 #app{
   width: 100vw;
   height: 100vh;
