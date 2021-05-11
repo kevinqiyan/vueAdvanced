@@ -7,6 +7,7 @@ import VueResource from 'vue-resource';
 import vuescroll from 'vuescroll';
 import "lib-flexible";
 import * as echarts from 'echarts';
+import "../mock/index"
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 Vue.use(VueRouter);

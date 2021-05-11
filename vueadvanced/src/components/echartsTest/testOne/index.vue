@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -342,6 +343,9 @@ export default {
       },
     };
   },
+  beforeMount() {
+    this.initData();
+  },
   mounted() {
     // this.initE();
     // this.getDom('one').showLoading()
@@ -349,9 +353,16 @@ export default {
     this.init("two", this.two);
     this.init("thre", this.thre);
     this.init("four", this.four);
-    this.init("five", this.five);
-    this.initData();
-    console.log(this.twoArr);
+    this.fiveInit();
+
+    /* mockjs 模拟数据 */
+    // axios.post('localhost:5253/goods/goodAll').then((res)=>{
+    //   console.log('mock数据',res.data);
+    // })
+
+    // this.init("five", this.five);
+    // this.initData();
+
     // document.write(this.twoArr)
   },
 
@@ -375,6 +386,102 @@ export default {
           this.randata(7),
         ]);
       }
+    },
+    fiveInit() {
+      let fives = this.$echarts.init(document.getElementById("five"));
+      fives.setOption({
+        legend: {
+          data: ["scatter", "scatter2", "scatter3"],
+        },
+        tooltip: {},
+        xAxis: {
+          type: "value",
+          min: "dataMin",
+          max: "dataMax",
+          splitLine: {
+            show: true,
+          },
+        },
+        yAxis: {
+          type: "value",
+          min: "dataMin",
+          max: "dataMax",
+          splitLine: {
+            show: true,
+          },
+        },
+        dataZoom: [
+          {
+            type: "slider",
+            show: true,
+            xAxisIndex: [0],
+            start: 1,
+            end: 35,
+          },
+          {
+            type: "slider",
+            show: true,
+            yAxisIndex: [0],
+            left: "93%",
+            start: 29,
+            end: 36,
+          },
+          {
+            type: "inside",
+            xAxisIndex: [0],
+            start: 1,
+            end: 35,
+          },
+          {
+            type: "inside",
+            yAxisIndex: [0],
+            start: 29,
+            end: 36,
+          },
+        ],
+        series: [
+          {
+            name: "scatter",
+            type: "scatter",
+            itemStyle: {
+              normal: {
+                opacity: 0.8,
+              },
+            },
+            symbolSize: function (val) {
+              // console.log('图形大小',val);
+              return val[2] * 10;
+            },
+            data: this.oneArr,
+          },
+          {
+            name: "scatter2",
+            type: "scatter",
+            itemStyle: {
+              normal: {
+                opacity: 0.8,
+              },
+            },
+            symbolSize: function (val) {
+              return val[2] * 10;
+            },
+            data: this.twoArr,
+          },
+          {
+            name: "scatter3",
+            type: "scatter",
+            itemStyle: {
+              normal: {
+                opacity: 0.8,
+              },
+            },
+            symbolSize: function (val) {
+              return val[2] * 10;
+            },
+            data: this.threArr,
+          },
+        ],
+      });
     },
   },
 };

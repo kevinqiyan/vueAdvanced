@@ -8,34 +8,35 @@ import Once from '../views/once.vue'
 import Echarts from '../components/echartsTest/index.vue'
 vue.use(Router)
 export default new Router({
-    routes:[
+    routes: [
         {
-            path:'Echarts',
-            name:'Echarts',
-            component:Echarts
+            path: 'Echarts',
+            name: 'Echarts',
+            component: Echarts
         },
-    {
-        path:'/HelloWorld',
-        name:'HelloWorld',
-        component:HelloWorld
-    },
-    {
-        path:'/EasySlider',
-        name:'EasySlider',
-        component:EasySlider
-    },
-    {
-        path:'/Look',
-        name:'Look',
-        component:Look
-    },
-    {
-        path:'/Once',
-        name:'Once',
-        component:Once
-    },
-    {
-        path:'',
-        component:Echarts
-    }
-]})
+        {
+            path: '/HelloWorld',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/EasySlider',
+            name: 'EasySlider',
+            component: EasySlider
+        },
+        {
+            path: '/Look',
+            name: 'Look',
+            component: Look
+        },
+        {
+            path: '/Once',
+            name: 'Once',
+            component: Once
+        },
+        {
+            path: '',
+            component: Echarts
+        }
+    ]
+})
