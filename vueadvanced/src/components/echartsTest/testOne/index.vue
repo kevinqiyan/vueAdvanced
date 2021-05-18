@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   data() {
     return {
@@ -486,4 +486,4 @@ export default {
   },
 };
 </script>
-<style lang='scss' src='./index.scss'></style>
+<style lang='scss' src='./index.scss' scoped></style>
