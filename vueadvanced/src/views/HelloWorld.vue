@@ -17,8 +17,11 @@
     </draggable>
     </div>
     <div>
+      <!-- <draggable v-model="list" @end="onEnd" delay="100"  distance="1"> -->
       <draggable v-model="list" @end="onEnd">
-        <component :is="item"  v-for="(item, index) in list" :key="index" @click="what(index)"></component>
+        <!-- <keep-alive> -->
+          <component :is="item"  v-for="(item, index) in list" :key="index" ></component>
+        <!-- </keep-alive> -->
       </draggable>
     </div>
     <!-- <div id="imgBlur" :class="isShow?'test':''"> -->
@@ -37,7 +40,7 @@ import four from '../components/dragModule/four'
 import five from '../components/dragModule/five'
 import draggable from 'vuedraggable'
 // import module from 'module'
-import math from 'library/dist/library'
+// import math from 'library/dist/library'
 // import getAll from '../api/index'
 // import build from '../../dist/info.yaml'
 export default {
@@ -110,19 +113,19 @@ export default {
       
     },
     onEnd(){
-      console.log(this.list,'++++++++++++++');
+      // console.log(this.list,'++++++++++++++');
       localStorage.setItem('dir',JSON.stringify(this.list))
     }
   },
   mounted() {
-    this.isShow = true,
-    this.te = new math.math.t
-    this.te.abc()
-    console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
-    if (localStorage.getItem('dir')) {
-      this.list = JSON.parse(localStorage.getItem('dir'))
-      console.log('localstorage 有值',this.list);
-    }
+    // this.isShow = true,
+    // this.te = new math.math.t
+    // this.te.abc()
+    // console.log(this.te,'**********',math,'11111',math.math.add(1,2),'----',this.te.tt(2,3));
+    // if (localStorage.getItem('dir')) {
+    //   this.list = JSON.parse(localStorage.getItem('dir'))
+    //   console.log('localstorage 有值',this.list);
+    // }
     // this.fs()
     // this.req()
     // this.thrd()

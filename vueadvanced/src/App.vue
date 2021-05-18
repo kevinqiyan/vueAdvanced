@@ -14,9 +14,9 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 #app{
-  width: 344px;
+  width: 100vw;
   height: 100vh;
   overflow-x: hidden;
 }
